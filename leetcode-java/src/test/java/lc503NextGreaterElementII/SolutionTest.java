@@ -1,4 +1,4 @@
-package l503NextGreaterElementII;
+package lc503NextGreaterElementII;
 
 import org.junit.jupiter.api.Test;
 
