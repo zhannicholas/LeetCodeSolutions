@@ -1,4 +1,4 @@
-package l706DesignHashmap;
+package lc706DesignHashmap;
 
 /*
 706. 设计哈希映射

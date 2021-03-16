@@ -1,44 +1,38 @@
-package l54SpiralMatrix;
+package lc59SpiralMatrixII;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /*
-54. 螺旋矩阵
-给你一个 m 行 n 列的矩阵 matrix ，请按照 顺时针螺旋顺序 ，返回矩阵中的所有元素。
-
+59. 螺旋矩阵 II
+给你一个正整数 n ，生成一个包含 1 到 n2 所有元素，且元素按顺时针顺序螺旋排列的 n x n 正方形矩阵 matrix 。
 
 
 示例 1：
 
 
-输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]
-输出：[1,2,3,6,9,8,7,4,5]
+输入：n = 3
+输出：[[1,2,3],[8,9,4],[7,6,5]]
 示例 2：
 
-
-输入：matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
-输出：[1,2,3,4,8,12,11,10,9,5,6,7]
+输入：n = 1
+输出：[[1]]
 
 
 提示：
 
-m == matrix.length
-n == matrix[i].length
-1 <= m, n <= 10
--100 <= matrix[i][j] <= 100
+1 <= n <= 20
 */
 public class Solution {
-    // 模拟，注意边界条件
-    public List<Integer> spiralOrder(int[][] matrix) {
-        int m = matrix.length, n = matrix[0].length;
-        int minI = 0, maxI = m - 1;
+    public int[][] generateMatrix(int n) {
+        int[][] matrix = new int[n][n];
+        int minI = 0, maxI = n - 1;
         int minJ = 0, maxJ = n - 1;
         int i = minI, j = minJ;
-        List<Integer> ans = new ArrayList<>();
+        int v = 1;
         while ((minI <= i && i <= maxI) && (minJ <= j && j <= maxJ)) {
             while (j <= maxJ) {
-                ans.add(matrix[i][j++]);
+                matrix[i][j++] = v++;
             }
             i++;
             minI++;
@@ -47,7 +41,7 @@ public class Solution {
                 break;
             }
             while (i <= maxI) {
-                ans.add(matrix[i++][j]);
+                matrix[i++][j] = v++;
             }
             maxJ--;
             j--;
@@ -56,7 +50,7 @@ public class Solution {
                 break;
             }
             while (j >= minJ) {
-                ans.add(matrix[i][j--]);
+                matrix[i][j--] = v++;
             }
             maxI--;
             i--;
@@ -65,13 +59,12 @@ public class Solution {
                 break;
             }
             while (i >= minI) {
-                ans.add(matrix[i--][j]);
+                matrix[i--][j] = v++;
             }
             minJ++;
             j++;
             i++;
         }
-
-        return ans;
+        return matrix;
     }
 }

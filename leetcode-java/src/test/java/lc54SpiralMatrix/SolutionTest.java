@@ -1,4 +1,4 @@
-package l54SpiralMatrix;
+package lc54SpiralMatrix;
 
 import org.junit.jupiter.api.Test;
 
