@@ -1,4 +1,4 @@
-package l136SingleNumber;
+package lc136SingleNumber;
 
 /*
 136. 只出现一次的数字

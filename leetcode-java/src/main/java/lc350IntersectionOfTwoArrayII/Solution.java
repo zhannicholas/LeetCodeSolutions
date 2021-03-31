@@ -1,4 +1,4 @@
-package l350IntersectionOfTwoArrayII;
+package lc350IntersectionOfTwoArrayII;
 
 import java.util.Arrays;
 
