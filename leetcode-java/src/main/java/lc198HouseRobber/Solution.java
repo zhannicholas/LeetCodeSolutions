@@ -48,4 +48,29 @@ public class Solution {
 
         return dp[n - 1];
     }
+
+    /**
+     *  观察以上动态规划解法，可以发现，我们实际上只需要用两个变量代替整个数组。
+     *  考虑对 nums[i] 的打劫情况，最终收益值只依赖于:
+     *  1. dp[i - 1] : 不打劫
+     *  2. dp[i - 2] + nums[i] : 打劫
+     *  用 profit1 和 profit2 两个变量即可。
+     */
+    public int rob2(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        if (nums.length == 1) { // 必须要打劫
+            return nums[0];
+        }
+        int n = nums.length;
+        int profit1 = nums[0], profit2 = Math.max(profit1, nums[1]);
+        for (int i = 2; i < n; i++) {
+            int t = Math.max(profit1 + nums[i], profit2);
+            profit1 = Math.max(profit1, profit2);
+            profit2 = t;
+        }
+
+        return Math.max(profit1, profit2);
+    }
 }
