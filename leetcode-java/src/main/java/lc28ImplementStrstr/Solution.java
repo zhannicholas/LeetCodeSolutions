@@ -21,6 +21,9 @@ package lc28ImplementStrstr;
 对于本题而言，当 needle 是空字符串时我们应当返回 0 。这与C语言的 strstr() 以及 Java的 indexOf() 定义相符。
  */
 public class Solution {
+    /**
+     * 暴力搜索，这也是 JDK 中 String.indexOf() 的实现方式。它的好处在于实现简单，不需要申请额外的内存空间，因为申请内存可能触发 GC，导致程序运行速度变慢。
+     */
     public int strStr(String haystack, String needle) {
         if (haystack == null || needle == null || needle.length() == 0) {
             return 0;
